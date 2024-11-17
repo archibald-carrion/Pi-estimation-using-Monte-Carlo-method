@@ -93,7 +93,6 @@ class Application:
         """
         Run the Monte Carlo simulation to estimate the value of π.
         """
-
         try:
             n_points = int(self.points_entry.get())
             if n_points <= 0:
@@ -118,7 +117,15 @@ class Application:
             self.ax.set_ylim(-1, 1)
             self.ax.grid(True)
             self.ax.set_aspect('equal')
-            self.ax.legend()
+            
+            # Fix legend position
+            # You can adjust these parameters:
+            # bbox_to_anchor: (x, y) position relative to the plot
+            # loc: anchor point of the legend box ('upper right', 'center left', etc.)
+            self.ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+            
+            # Alternative fixed position inside the plot:
+            # self.ax.legend(loc='upper right')
             
             # Update result label
             self.result_label.configure(text=f"Estimated π: {pi_approx:.6f}")
