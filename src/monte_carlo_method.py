@@ -1,6 +1,20 @@
 import random
 
+
 def monte_carlo_pi(n):
+    """
+    Estimate the value of pi using the Monte Carlo method.
+
+    Parameters:
+    - n (int): The number of random points to generate.
+
+    Returns:
+    - pi_approximation (float): The estimated value of pi.
+    - x_inside (list): List of x-coordinates of points inside the circle.
+    - y_inside (list): List of y-coordinates of points inside the circle.
+    - x_outside (list): List of x-coordinates of points outside the circle.
+    - y_outside (list): List of y-coordinates of points outside the circle.
+    """
     inside_circle = 0
     x_inside, y_inside = [], []
     x_outside, y_outside = [], []

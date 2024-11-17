@@ -5,8 +5,20 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 from monte_carlo_method import monte_carlo_pi
 
+
 class Application:
     def __init__(self):
+        """
+        Initializes the Application class.
+
+        This method sets up the main window, input widgets, graph frame, and initializes the simulation.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
         self.window = ctk.CTk()
         self.window.title("Monte Carlo Pi Approximation")
         self.window.geometry("800x600")
@@ -55,8 +67,12 @@ class Application:
         # Initial simulation
         self.run_simulation()
     
-    # Function to properly close the application window
+
     def on_closing(self):
+        """
+        Callback function that is triggered when the window is being closed.
+        It performs the necessary cleanup tasks to properly close the application.
+        """
         # Properly close matplotlib figure
         plt.close(self.fig)
         
@@ -74,6 +90,10 @@ class Application:
         self.window.destroy()
            
     def run_simulation(self):
+        """
+        Run the Monte Carlo simulation to estimate the value of π.
+        """
+
         try:
             n_points = int(self.points_entry.get())
             if n_points <= 0:
