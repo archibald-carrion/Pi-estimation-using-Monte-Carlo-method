@@ -2,7 +2,8 @@ import customtkinter as ctk
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import random
+
+from monte_carlo_method import monte_carlo_pi
 
 class Application:
     def __init__(self):
@@ -71,27 +72,7 @@ class Application:
         # Destroy the window
         self.window.quit()
         self.window.destroy()
-        
-    def monte_carlo_pi(self, n):
-        inside_circle = 0
-        x_inside, y_inside = [], []
-        x_outside, y_outside = [], []
-        
-        for _ in range(n):
-            x = random.uniform(-1, 1)
-            y = random.uniform(-1, 1)
-            
-            if x*x + y*y <= 1:
-                inside_circle += 1
-                x_inside.append(x)
-                y_inside.append(y)
-            else:
-                x_outside.append(x)
-                y_outside.append(y)
-        
-        pi_approximation = 4 * inside_circle / n
-        return pi_approximation, x_inside, y_inside, x_outside, y_outside
-    
+           
     def run_simulation(self):
         try:
             n_points = int(self.points_entry.get())
@@ -102,7 +83,7 @@ class Application:
             self.ax.clear()
             
             # Run simulation
-            pi_approx, x_inside, y_inside, x_outside, y_outside = self.monte_carlo_pi(n_points)
+            pi_approx, x_inside, y_inside, x_outside, y_outside = monte_carlo_pi(n_points)
             
             # Plot points
             self.ax.scatter(x_inside, y_inside, c='green', s=1, alpha=0.6, label='Inside')
