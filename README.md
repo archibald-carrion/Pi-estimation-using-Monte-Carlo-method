@@ -91,5 +91,34 @@ main_folder/
 ### Program flow
 
 ```mermaid
+flowchart TD
+    A[Start Program] --> B[Initialize Application]
+    B --> C[Create GUI Components]
+    C --> D[Wait for User Input]
+    D --> E[Run Button Clicked]
+    E --> F[Get Points Quantity]
+    F --> G[Call monte_carlo_pi]
+    G --> H[Generate Random Points]
+    H --> I[Calculate π Estimation]
+    I --> J[Update Graph]
+    J --> K[Update Result Label]
+    K --> D
+    D --> L[Close Window]
+    L --> M[Cleanup and Exit]
+
+    %% Style definitions for monochrome black
+    style A fill:white,stroke:black,stroke-width:2px,color:black
+    style B fill:white,stroke:black,stroke-width:2px,color:black
+    style C fill:white,stroke:black,stroke-width:2px,color:black
+    style D fill:white,stroke:black,stroke-width:2px,color:black
+    style E fill:white,stroke:black,stroke-width:2px,color:black
+    style F fill:white,stroke:black,stroke-width:2px,color:black
+    style G fill:white,stroke:black,stroke-width:2px,color:black
+    style H fill:white,stroke:black,stroke-width:2px,color:black
+    style I fill:white,stroke:black,stroke-width:2px,color:black
+    style J fill:white,stroke:black,stroke-width:2px,color:black
+    style K fill:white,stroke:black,stroke-width:2px,color:black
+    style L fill:white,stroke:black,stroke-width:2px,color:black
+    style M fill:white,stroke:black,stroke-width:2px,color:black
 
 ```
